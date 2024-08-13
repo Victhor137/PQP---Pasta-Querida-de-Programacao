@@ -1,0 +1,32 @@
+# Matriz
+nomes = vetor de nomes
+medias = vetor de medias
+status = vetor de status
+
+# Contador
+contador = 0
+quando contador < 3 então
+    nome = leia("Digite o nome do aluno: ")
+    nota1 = leia("Digite a nota da 1ª avaliação: ")
+    nota2 = leia("Digite a nota da 2ª avaliação: ")
+    nota3 = leia("Digite a nota da 3ª avaliação: ")
+
+    media = (nota1 + nota2 + nota3) / 3
+    
+    se media >= 6 então
+        aluno_status = "Aprovado"
+    senão então
+        aluno_status = "Reprovado"
+    
+    vetor(nomes) recebe nome
+    vetor(medias) recebe media
+    vetor(status) recebe aluno_status
+
+    contador += 1
+
+# Tabela geral
+escreva("Relatório Final:")
+para x em um alcance de 3:
+    escreva nome de nomes
+	escreva media de medias
+    escreva status_aluno de status

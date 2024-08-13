@@ -1,7 +1,7 @@
-# Matriz
-nomes = vetor de nomes
-medias = vetor de medias
-status = vetor de status
+# Inicialização dos Vetores
+nomes = vetor de 3 elementos
+medias = vetor de 3 elementos
+status = vetor de 3 elementos
 
 # Contador
 contador = 0
@@ -18,15 +18,15 @@ quando contador < 3 então
     senão então
         aluno_status = "Reprovado"
     
-    vetor(nomes) recebe nome
-    vetor(medias) recebe media
-    vetor(status) recebe aluno_status
+    nomes[contador] = nome
+    medias[contador] = media
+    status[contador] = aluno_status
 
     contador += 1
 
 # Tabela geral
 escreva("Relatório Final:")
 para x em um alcance de 3:
-    escreva nome de nomes
-	escreva media de medias
-    escreva status_aluno de status
+    escreva "Nome: ", nomes[x]
+    escreva "Média: ", medias[x]
+    escreva "Status: ", status[x]

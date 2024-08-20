@@ -1,32 +1,57 @@
-# Inicialização dos Vetores
-nomes = vetor de 3 elementos
-medias = vetor de 3 elementos
-status = vetor de 3 elementos
+//um algoritmo para calcular a média de 3 alunos.
 
-# Contador
-contador = 0
-quando contador < 3 então
-    nome = leia("Digite o nome do aluno: ")
-    nota1 = leia("Digite a nota da 1ª avaliação: ")
-    nota2 = leia("Digite a nota da 2ª avaliação: ")
-    nota3 = leia("Digite a nota da 3ª avaliação: ")
+algoritmo: "calculadora_media_alunos"
 
-    media = (nota1 + nota2 + nota3) / 3
+var
+    nome: caractere
+    quantidade_alunos: inteiro
+    nota1,nota2,nota3,media: real
+    alunos,medias,status: vetor[1..3] de caractere
+
+//inicio do código
+inicio algoritmo calculadora_media_alunos
+    escreva("Qual a quantidade de alunos: ")
+    leia quantidade_alunos
+
+//declaração dos vetores
+alunos = vetor[1..quantidade_alunos] de caractere
+medias = vetor[1..quantidade_alunos] de real
+status = vetor[1..quantidade_alunos] de caractere
     
-    se media >= 6 então
-        aluno_status = "Aprovado"
-    senão então
-        aluno_status = "Reprovado"
-    
-    nomes[contador] = nome
-    medias[contador] = media
-    status[contador] = aluno_status
+// função do cálculo de média
 
-    contador += 1
+inicio para i de 1 até quantidade_alunos passo 1 faça
+	escreva("Digite o nome do aluno: ")
+           leia(nome)
+           escreva("Digite a nota da 1ª avaliação: ")
+           leia(nota1)  
+           escreva("Digite a nota da 2ª avaliação: ")
+           leia(nota2)
+           escreva("Digite a nota da 3ª avaliação: ")
+           leia(nota3)
+           media = (nota1 + nota2 + nota3) / 3
+		inicio se
+  			se media >7 então
+               	aluno_status = "Aprovado"
+           		senão media <7 então
+                  aluno_status = "Reprovado"
+           		senão media = 7 então
+               	aluno_status = "Recuperação"
+           		senão então
+           		escreva("Digite valores válidos para as notas.")
+ 		fim se
 
-# Tabela geral
-escreva("Relatório Final:")
-para x em um alcance de 3:
-    escreva "Nome: ", nomes[x]
-    escreva "Média: ", medias[x]
-    escreva "Status: ", status[x]
+//adiciona as informações aos vetores
+     alunos[i] = nome
+     medias[i] = media
+     status[i] = aluno_status      
+fim para
+
+//apresentação dos resultados
+    escreva("Relatório Final:")
+    para i de 1 até quantidade_alunos faça
+        escreva ("Nome: ", nomes[i])
+        escreva ("Média: ", medias[i])
+        escreva ("Status: ", status[i])
+        escreva ("---"*15)
+fim algoritmo calculadora_media_alunos
